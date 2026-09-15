@@ -1,58 +1,34 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+Vogelvereniging
+website voor een vogelvereniging - gemaakt in laravel
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+In dit Github project komen de commits voor een vogelvereniging, de eerste commit is nadat het laravelproject aangemaakt is.
 
-## About Laravel
+Het project is aangemaakt op de volgende manier:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Open een terminal in de folder waar je het project in wilt hebben. In dit geval heb ik git bash gebruikt Vervolgens type je in het terminal: "laravel new vogelvereniging". Het woord vogelvereniging is een woord waar je alles neer kunt zetten. Dit is de naam van het laravelproject. In dit geval heb ik het vogelvereniging genoemd Dan doe je enter en krijg je een aantal vragen which framework would you like to install? ik heb "none" gedaan daar which testing framework do you prefer? daar heb ik "Pest" ingevuld Do you want to install laravel Boost to improve AI assisted coding? ik heb "no" gezegd
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Dan gaat hij een gedeelte installeren, na dit stukje installatie krijg je nog meer vragen (dit stukje installatie duurt ongeveer 2-3 minuten) Na dit stukje installatie gaat hij weer verder met vragen:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Which database will your application use? op school werken we altijd met MySQL. dus hier heb ik mysql ingevuld dan vraagt hij of de migrations die aangemaakt worden of die alvast uitgevoerd moeten worden. daar doe ik "ja"
 
-## Learning Laravel
+dan gaat hij weer verder met installeren. dit duurt 1-2 minuten en vraagt hij nog een aantal dingen:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+would you like to run NPM install and npm run build? ik doe hier ook altijd "ja" want de mogelijkheid bestaat dat er nog dingen missen van NPM en die installeerd hij er hier alvast bij. dat is voor jou makkelijker zodat je dat later niet hoeft te doen.
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+dan gaat hij die dingen installeren en kan jij weer even wachten tot het klaar is. zodra deze installatie klaar is, is jou website klaar om te gaan maken. er zijn wel een aantal dingen waar ik tegenaan liep bij het installeren van het project, maar dat was gelukkig snel op te lossen.
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+1 ding was bijvoorbeeld: Host is malformed, dat betekent dat de poort die gebruikt wordt 2 keer in de url staat, in het .env bestand wat aangemaakt wordt kan je de app_url aanpassen, zodat de poort er nog maar 1 keer instaat en dan is het prima. een ander probleem was dat de database niet automatisch aangemaakt werd, dat is wel een probleem, want anders kan de website niet runnen. nou dit los je op door de database even handmatig aan te maken. dit doe je in de database editor die je gebruikt. in mijn geval Heidisql, maar een andere die je zou kunnen gebruiken is sql workbench. de database aanmaken zou voor zover ik weet automatisch moeten gaan, maar als dat niet gebeurt dan moet je de database even handmatig aanmaken, wat zo gebeurd is
 
-## Agentic Development
+dit zijn een aantal problemen waar ik tijdens en na de installatie tegen aanliep. als je nog meer hulp nodig hebt dan zou ik even chatgpt of gemini raadplegen.
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+na het installeren van het laravelproject gaan we door met wat andere installaties, om te kunnen inloggen gebruiken we breeze. dat is een tool die ervoor zorgt dat je kan inloggen op een laravel applicatie. je kan het ook zelf in elkaar zetten, maar dit zorgt ook wel voor een beetje gemak.. om breeze te installeren kan je meerder commands gebruiken: composer require laravel/breeze --dev & php artisan breeze:install
 
-```bash
-composer require laravel/boost --dev
+bij het installeren hiervan krijg je een aantal vragen: Which breeze stack would you like to install? Blade React Vue Api
 
-php artisan boost:install
-```
+voor dit project gebruiken we Blade.
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+dan krijg je de vraag: Would you like dark mode support? Yes or No -> hier kiezen we Yes
 
-## Contributing
+dan krijgen we de laatste vraag: Which testing framework do you prefer? PHPUnit Pest
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+wij gebruiken Pest als testing framework voor dit vogelproject.
