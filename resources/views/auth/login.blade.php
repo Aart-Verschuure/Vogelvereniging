@@ -30,20 +30,23 @@
 
         <div class="flex flex-col sm:flex-row gap-3 items-stretch">
             <button type="submit" 
-                    class="flex-1 bg-[#FF7A22] hover:bg-[#000] text-white font-medium text-xl py-3 px-6 transition duration-150 ease-in-out text-center">
+                    class="flex-1 bg-[#FF7A22] hover:bg-[#d2583d] text-white font-medium text-xl py-3 px-6 transition duration-150 ease-in-out text-center">
                 Inloggen
             </button>
             
             <a href="/" 
-               class="flex-1 bg-[#FF7A22] hover:bg-[#000] text-white font-medium text-xl py-3 px-6 transition duration-150 ease-in-out text-center">
+               class="flex-1 bg-[#FF7A22] hover:bg-[#d2583d] text-white font-medium text-xl py-3 px-6 transition duration-150 ease-in-out text-center">
                 Terug
             </a>
         </div>
 
         @if (Route::has('password.request'))
             <div class="text-center mt-4">
-                <a class="underline text-sm text-green-600 hover:text-green-400" href="{{ route('password.request') }}">
+                <a class="underline text-sm text-orange-600 hover:text-orange-400" href="{{ route('password.request') }}">
                     Wachtwoord vergeten?
+                </a><br>
+                <a class="underline text-sm text-orange-600 hover:text-orange-400" href="{{ route('register') }}">
+                    Nog geen lid, je kan je hier aanmelden daarvoor.
                 </a>
             </div>
         @endif

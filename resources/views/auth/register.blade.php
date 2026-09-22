@@ -1,52 +1,84 @@
 <x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
+    <form method="POST" action="{{ route('register') }}" class="w-full max-w-xl mx-auto px-6    ">
         @csrf
 
-        <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+        <div class="mb-4">
+            <input id="name" 
+                type="text" 
+                name="name" 
+                value="{{ old('name') }}" 
+                placeholder="Naam" 
+                required 
+                autofocus 
+                autocomplete="name"
+                class="w-full px-4 py-3 text-lg border-none focus:ring-0 text-gray-800 placeholder-gray-500 bg-white" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
 
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
+        <div class="mb-4">
+            <input id="email" 
+                type="email" 
+                name="email" 
+                value="{{ old('email') }}" 
+                placeholder="Email" 
+                required 
+                autocomplete="username"
+                class="w-full px-4 py-3 text-lg border-none focus:ring-0 text-gray-800 placeholder-gray-500 bg-white" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
-
+        <div class="mb-4">
+            <input id="password" 
+                type="password" 
+                name="password" 
+                placeholder="Wachtwoord"
+                required 
+                autocomplete="new-password"
+                class="w-full px-4 py-3 text-lg border-none focus:ring-0 text-gray-800 placeholder-gray-500 bg-white" />
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
 
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
-
+        <div class="mb-4">
+            <input id="password_confirmation" 
+                type="password" 
+                name="password_confirmation" 
+                placeholder="Wachtwoord bevestigen"
+                required 
+                autocomplete="new-password"
+                class="w-full px-4 py-3 text-lg border-none focus:ring-0 text-gray-800 placeholder-gray-500 bg-white" />
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
 
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
-
-            <x-primary-button class="ms-4">
-                {{ __('Register') }}
-            </x-primary-button>
+        <div class="mb-6">
+            <select id="function" 
+                name="function" 
+                required
+                class="w-full px-4 py-3 text-lg border-none focus:ring-0 text-gray-800 bg-white">
+                <option value="" disabled selected>Kies een lidmaatschap...</option>
+                <option value="senior" {{ old('function') == 'senior' ? 'selected' : '' }}>Senior</option>
+                <option value="junior" {{ old('function') == 'junior' ? 'selected' : '' }}>Junior</option>
+                <option value="gastlid" {{ old('function') == 'gastlid' ? 'selected' : '' }}>Gastlid</option>
+            </select>
+            <x-input-error :messages="$errors->get('function')" class="mt-2" />
         </div>
+
+        <div class="flex flex-col sm:flex-row gap-3 items-stretch">
+            <button type="submit" 
+                    class="flex-1 bg-[#FF7A22] hover:bg-[#d2583d] text-white font-medium text-xl py-3 px-6 transition duration-150 ease-in-out text-center">
+                Registreren
+            </button>
+            
+            <a href="/" 
+                class="flex-1 bg-[#FF7A22] hover:bg-[#d2583d] text-white font-medium text-xl py-3 px-6 transition duration-150 ease-in-out text-center">
+                Terug
+            </a>
+        </div>
+        @if (Route::has('password.request'))
+            <div class="text-center mt-4">
+                <a class="underline text-sm text-orange-600 hover:text-orange-400" href="{{ route('login') }}">
+                    heb je al een account? 
+                </a>
+            </div>
+        @endif
     </form>
 </x-guest-layout>

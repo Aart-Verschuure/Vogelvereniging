@@ -20,6 +20,11 @@
             <x-primary-button>
                 {{ __('Email Password Reset Link') }}
             </x-primary-button>
+            <x-primary-button class="">
+                <a href="{{ route('login') }}">
+                    {{ __('Terug') }}
+                </a>
+            </x-primary-button>
         </div>
     </form>
 </x-guest-layout>
