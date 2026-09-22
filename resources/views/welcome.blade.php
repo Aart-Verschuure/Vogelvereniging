@@ -21,6 +21,9 @@
                     <a href="{{ route('login') }}" class="bg-[#a3b8cc] text-gray-900 px-6 py-2 font-semibold hover:bg-gray-500 transition">
                         Inloggen
                     </a>
+                    <a href="{{ route('register') }}" class="bg-[#a3b8cc] text-gray-900 px-6 py-2 font-semibold hover:bg-gray-500 transition">
+                        aanmelden
+                    </a>
                 </div>
             </div>
         @endauth
@@ -38,14 +41,14 @@
                     <p>Natuur- en dierenbescherming Midden Nederland heeft het gebied in juni 2006 verkozen tot beste gebied van de maand met de navolgende motivatie:</p>
                     <blockquote class="italic border-l-4 border-gray-600 pl-4 my-2">
                         “Het gebied ademt rust uit en het heeft een soort alzijdigheid. Het totaal is zeer hoogwaardig vormgegeven”,<br>
-                        Bovendien is het gebied een stiltegebied waardoor je alleen de vogeltjes hoort fluiten en de wind door de bomen. Het is een prachtig gebied om te wandelen en te genieten van de natuur. Het is een aanrader voor iedereen die van vogels en natuur houdt."
+                        Bovendien is het gebied een stiltegebied waardoor je alleen de vogeltjes hoort fluiten en de wind door de bomen. "Het is een prachtig gebied om te wandelen en te genieten van de natuur. Het is een aanrader voor iedereen die van vogels en natuur houdt."
                     </blockquote>
                 </div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start max-w-5xl mx-auto mt-8">
                 <div class="flex justify-center">
-                    <img src="{{ asset('Images/gebied.jpg') }}" alt="Arrestantencomplex Gebouw" class="w-full max-w-md h-auto shadow-lg object-cover">
+                    <img src="{{ asset('Images/gebied.jpg') }}" alt="omgeving" class="w-full max-w-md h-auto shadow-lg object-cover">
                 </div>
 
                 <div class="space-y-6 md:pl-8">
@@ -65,7 +68,7 @@
                             <p><strong class="font-medium">Clubgebouw:</strong> Biologisch centrum Jong Dordrecht:</p>
                             <p><strong class="font-medium">Adres:</strong> Noorderelsweg 4A,<br><span class="pl-12">3329 KH Dordrecht</span></p>
                             <p><strong class="font-medium">Telefoon:</strong> 078-6213921</p>
-                            <p><strong class="font-medium">E-mail:</strong><a href="mailto:vogelwacht@vogelwacht.eu" class="text-blue-600 hover:underline"> vogelwacht@vogelwacht.eu</a></p>
+                            <p><strong class="font-medium">E-mail:</strong><a href="mailto:contact@vogelvereniging.nl" class="text-blue-600 hover:underline"> contact@vogelvereniging.nl</a></p>
                         </address>
                     </div>
                 </div>

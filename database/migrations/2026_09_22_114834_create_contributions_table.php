@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('members_types', function (Blueprint $table) {
+        Schema::create('contributions', function (Blueprint $table) {
             $table->id();
-            $table->string('name'); // junior, senior, gastlid
-            $table->string('description'); // Overige informatie over het lidmaatschapstype
-            $table->integer('price'); // Prijs van het lidmaatschapstype
+            $table->foreignId('member_id')->constrained('members')->onDelete('cascade');
+            $table->integer('amount'); // Bedrag van de contributie
+            $table->string('is_paid'); // Beschrijving van de contributie
+            $table->date('Pay_date'); // Datum van de contributie
             $table->timestamps();
         });
     }
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('members_types');
+        Schema::dropIfExists('contributions');
     }
 };
