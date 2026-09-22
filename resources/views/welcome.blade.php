@@ -55,9 +55,9 @@
                     <div>
                         <h2 class="font-semibold mb-2">We bieden verschillende lidmaatschappen aan, waaronder:</h2>
                             <ul class="md:pl-14 list-disc space-y-1 pl-4">
-                                <li>Senior-lid</li>
-                                <li>Junior-lid</li>
-                                <li>Gast-lid</li>
+                                <li>Senior-lid: hiervoor betaal je €36 per jaar</li>
+                                <li>Junior-lid: hiervoor betaal je €18 per jaar</li>
+                                <li>Gast-lid: hiervoor betaal je €18 per jaar</li>
                             </ul>
                     </div>
 
