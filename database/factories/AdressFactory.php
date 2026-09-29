@@ -1,0 +1,27 @@
+<?php
+
+namespace Database\Factories;
+
+use App\Models\Adress;
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+/**
+ * @extends Factory<Adress>
+ */
+class AdressFactory extends Factory
+{
+    /**
+     * Define the model's default state.
+     *
+     * @return array<string, mixed>
+     */
+    public function definition(): array
+    {
+        return [
+            'street'       => fake()->streetName(),
+            'house_number' => fake()->buildingNumber(),
+            'postal_code'  => fake()->postcode(),
+            'city'         => fake()->city(),
+        ];
+    }
+}
