@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('postal_code');
             $table->string('city');
             $table->timestamps();
+            $table->softDeletes(); // Voeg soft delete kolom toe
         });
     }
 

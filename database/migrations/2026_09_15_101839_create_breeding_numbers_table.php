@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('breeding_number')->unique();
             $table->date('date_of_issue');
             $table->timestamps();
+            $table->softDeletes(); // Voeg soft delete kolom toe
         });
     }
 

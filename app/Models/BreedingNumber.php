@@ -6,14 +6,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Adress extends Model
+class BreedingNumber extends Model
 {
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'street',
-        'house_number',
-        'postal_code',
-        'city',
+        'member_id',
+        'breeding_number',
+        'issue_year',
     ];
 }

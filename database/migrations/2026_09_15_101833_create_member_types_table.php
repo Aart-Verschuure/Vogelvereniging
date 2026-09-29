@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('members_types', function (Blueprint $table) {
+        Schema::create('member_types', function (Blueprint $table) {
             $table->id();
             $table->string('name'); // junior, senior, gastlid
             $table->string('description'); // Overige informatie over het lidmaatschapstype
             $table->integer('price'); // Prijs van het lidmaatschapstype
             $table->timestamps();
+            $table->softDeletes(); // Voeg soft delete kolom toe
         });
     }
 
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('members_types');
+        Schema::dropIfExists('member_types');
     }
 };

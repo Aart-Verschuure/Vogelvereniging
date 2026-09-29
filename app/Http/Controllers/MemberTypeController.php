@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Members_type;
+use App\Models\MemberType;
 use Illuminate\Http\Request;
 
-class MembersTypeController extends Controller
+class MemberTypeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class MembersTypeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Members_type $members_type)
+    public function show(MemberType $memberType)
     {
         //
     }
@@ -42,7 +42,7 @@ class MembersTypeController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Members_type $members_type)
+    public function edit(MemberType $memberType)
     {
         //
     }
@@ -50,7 +50,7 @@ class MembersTypeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Members_type $members_type)
+    public function update(Request $request, MemberType $memberType)
     {
         //
     }
@@ -58,7 +58,7 @@ class MembersTypeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Members_type $members_type)
+    public function destroy(MemberType $memberType)
     {
         //
     }

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('is_paid'); // Beschrijving van de contributie
             $table->date('Pay_date'); // Datum van de contributie
             $table->timestamps();
+            $table->softDeletes(); // Voeg soft delete kolom toe
         });
     }
 
