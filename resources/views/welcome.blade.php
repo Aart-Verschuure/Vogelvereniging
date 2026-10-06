@@ -21,8 +21,8 @@
                     <a href="{{ route('login') }}" class="bg-[#a3b8cc] text-gray-900 px-6 py-2 font-semibold hover:bg-gray-500 transition">
                         Inloggen
                     </a>
-                    <a href="{{ route('register') }}" class="bg-[#a3b8cc] text-gray-900 px-6 py-2 font-semibold hover:bg-gray-500 transition">
-                        aanmelden
+                    <a href="{{ route('membership.apply') }}" class="bg-[#a3b8cc] text-gray-900 px-6 py-2 font-semibold hover:bg-gray-500 transition">
+                        Lid worden
                     </a>
                 </div>
             </div>
@@ -55,9 +55,15 @@
                     <div>
                         <h2 class="font-semibold mb-2">We bieden verschillende lidmaatschappen aan, waaronder:</h2>
                             <ul class="md:pl-14 list-disc space-y-1 pl-4">
-                                <li>Senior-lid: hiervoor betaal je €36 per jaar</li>
-                                <li>Junior-lid: hiervoor betaal je €18 per jaar</li>
-                                <li>Gast-lid: hiervoor betaal je €18 per jaar</li>
+                                @foreach ($memberTypes as $type)
+                                    @php($price = $type->currentPrice())
+                                    @continue($price === null)
+                                    <li>{{ $type->name }}: hiervoor betaal je € {{ number_format($price, 2, ',', '.') }} per jaar
+                                        @if ($announced = $type->announcedPrice())
+                                            <br><span class="text-sm text-gray-700">Per 1 januari {{ $announced->year }}: € {{ number_format($announced->price, 2, ',', '.') }} per jaar</span>
+                                        @endif
+                                    </li>
+                                @endforeach
                             </ul>
                     </div>
 
@@ -77,8 +83,9 @@
         </div>
     </main>
 
-    <footer class="bg-[#f3b05a] px-6 py-2 text-sm text-gray-800">
+    <footer class="bg-[#f3b05a] px-6 py-2 text-sm text-gray-800 flex justify-between">
         <p>&copy; {{ date('d-m-Y') }} - Made by Aart Verschuure</p>
+        <a href="{{ route('membership.cancel') }}" class="hover:underline">Lidmaatschap opzeggen</a>
     </footer>
 </body>
 </html>

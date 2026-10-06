@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('members', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('Member_type_id')->constrained('member_types'); // elk lid heeft maar 1 lidmaatschapstype
+            $table->foreignId('member_type_id')->constrained('member_types'); // elk lid heeft maar 1 lidmaatschapstype
             $table->foreignId('address_id')->constrained('adresses'); // elk lid heeft maar 1 adres
             $table->string('first_name');
             $table->string('last_name');

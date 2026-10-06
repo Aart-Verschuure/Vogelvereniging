@@ -2,9 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\Member;
-use App\Models\User;
-use App\Models\MemberType;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -18,6 +15,7 @@ class DatabaseSeeder extends Seeder
             MemberTypeSeeder::class,
             AddressSeeder::class,
             MemberSeeder::class,
+            ContributionSeeder::class,
         ]);
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -45,6 +46,13 @@ class ProfileController extends Controller
         $request->validateWithBag('userDeletion', [
             'password' => ['required', 'current_password'],
         ]);
+
+        // Er moet altijd minstens één account overblijven, anders kan niemand meer inloggen
+        if (User::count() <= 1) {
+            return Redirect::route('profile.edit')->withErrors([
+                'password' => 'Dit is het laatste account en kan niet worden verwijderd. Voeg eerst een andere beheerder toe.',
+            ], 'userDeletion');
+        }
 
         $user = $request->user();
 

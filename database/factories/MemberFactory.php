@@ -2,10 +2,11 @@
 
 namespace Database\Factories;
 
+use App\Models\Adress;
 use App\Models\Member;
+use App\Models\MemberType;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
 
 /**
  * @extends Factory<Member>
@@ -30,11 +31,30 @@ class MemberFactory extends Factory
             'date_of_birth' => fake()->date(),
             'nbvv_number' => fake()->unique()->regexify('[0-9]{6}'),
             'is_active' => true,
+            'registration_date' => fake()->dateTimeThisYear(),
+            'status' => Member::STATUS_ACTIVE,
+            'approved_at' => now(),
             'email' => fake()->unique()->safeEmail(),
             'password' => static::$password ??= Hash::make('password'),
-            'member_type_id' => 1, // Assuming this is the ID for "Volwassen lid"
-            'address_id' => 1, // Assuming this is the ID for the default address
+            'address_id' => Adress::factory(),
+            'member_type_id' => fn () => MemberType::inRandomOrder()->value('id') ?? MemberType::factory(),
         ];
+    }
+
+    /**
+     * Een aanmelding die nog in quarantaine staat.
+     */
+    public function pending(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'status' => Member::STATUS_PENDING,
+            'is_active' => 0,
+            'approved_at' => null,
+            'registration_date' => today(),
+            'signature_name' => $attributes['first_name'].' '.$attributes['last_name'],
+            'signed_at' => now(),
+            'signature_ip' => '127.0.0.1',
+        ]);
     }
 
     /**

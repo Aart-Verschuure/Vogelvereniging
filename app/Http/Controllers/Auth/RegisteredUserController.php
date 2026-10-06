@@ -18,8 +18,12 @@ class RegisteredUserController extends Controller
     /**
      * Display the registration view.
      */
-    public function create(): View
+    public function create(): View|RedirectResponse
     {
+        if (! $this->registrationIsOpen()) {
+            return $this->registrationClosed();
+        }
+
         return view('auth.register');
     }
 
@@ -30,6 +34,10 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+        if (! $this->registrationIsOpen()) {
+            return $this->registrationClosed();
+        }
+
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
@@ -47,5 +55,20 @@ class RegisteredUserController extends Controller
         Auth::login($user);
 
         return redirect(route('dashboard', absolute: false));
+    }
+
+    /**
+     * Registreren kan alleen voor het allereerste account. Daarna voegt een ingelogde
+     * beheerder nieuwe accounts toe via het beheerdersscherm.
+     */
+    private function registrationIsOpen(): bool
+    {
+        return ! User::exists();
+    }
+
+    private function registrationClosed(): RedirectResponse
+    {
+        return redirect()->route('login')
+            ->with('status', 'Registreren is gesloten. Een beheerder kan een account voor je aanmaken.');
     }
 }

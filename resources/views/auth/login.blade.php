@@ -45,7 +45,7 @@
                 <a class="underline text-sm text-orange-600 hover:text-orange-400" href="{{ route('password.request') }}">
                     Wachtwoord vergeten?
                 </a><br>
-                <a class="underline text-sm text-orange-600 hover:text-orange-400" href="{{ route('register') }}">
+                <a class="underline text-sm text-orange-600 hover:text-orange-400" href="{{ route('membership.apply') }}">
                     Nog geen lid, je kan je hier aanmelden daarvoor.
                 </a>
             </div>

@@ -2,8 +2,11 @@
     <form method="POST" action="{{ route('register') }}" class="w-full max-w-xl mx-auto px-6    ">
         @csrf
 
+        <h1 class="text-xl font-semibold mb-1">Eerste beheerdersaccount aanmaken</h1>
+        <p class="text-sm text-gray-600 mb-4">Er is nog geen account. Het account dat je nu aanmaakt is de eerste beheerder. Daarna is registreren gesloten en kunnen alleen beheerders nieuwe accounts toevoegen.</p>
+
         <div class="mb-4">
-            <input id="name" 
+            <input id="name"
                 type="text" 
                 name="name" 
                 value="{{ old('name') }}" 
@@ -47,19 +50,6 @@
                 autocomplete="new-password"
                 class="w-full px-4 py-3 text-lg border-none focus:ring-0 text-gray-800 placeholder-gray-500 bg-white" />
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
-
-        <div class="mb-6">
-            <select id="function" 
-                name="function" 
-                required
-                class="w-full px-4 py-3 text-lg border-none focus:ring-0 text-gray-800 bg-white">
-                <option value="" disabled selected>Kies een lidmaatschap...</option>
-                <option value="senior" {{ old('function') == 'senior' ? 'selected' : '' }}>Senior</option>
-                <option value="junior" {{ old('function') == 'junior' ? 'selected' : '' }}>Junior</option>
-                <option value="gastlid" {{ old('function') == 'gastlid' ? 'selected' : '' }}>Gastlid</option>
-            </select>
-            <x-input-error :messages="$errors->get('function')" class="mt-2" />
         </div>
 
         <div class="flex flex-col sm:flex-row gap-3 items-stretch">
